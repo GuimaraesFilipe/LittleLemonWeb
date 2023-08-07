@@ -3,17 +3,16 @@ import logo from './icons_assets/Logo .svg'
 
 function Footer(){
     return(<>
-    <footer class="fixed-bottom">
-        <Row >
-            <Col className="col-4">
-                <Row>
-                    <Col className="col-6 offset-6 align-bottom mt-5">
-                    <img src={logo}  alt='little lemon logo' width='90%' ></img>
-                    </Col>
-                </Row>
-            
+    <footer  className='overflow' >
+        <Container className='d-flex justify-content-center mt-5 'fixed="bottom">
+            <Col className="col-4 d-flex  justify-content-start align-items-center ">
+              
+       
+                    <img src={logo}  alt='little lemon logo' className="footerIMG" ></img>
+                 
+               
             </Col>
-            <Col className="col-2 ">
+            <Col className="col-3 p-2 footer">
             <ListGroup variant="flush">
       <ListGroup.Item  href="#home" className=' listItem text-muted'>Home</ListGroup.Item>
       <ListGroup.Item href="#about" className=' listItem  text-muted'>About</ListGroup.Item>
@@ -25,7 +24,7 @@ function Footer(){
     </ListGroup>
             </Col>
            
-            <Col className="col-2">
+            <Col className="col-2 p-2 footer">
             <ListGroup variant="flush">
       <ListGroup.Item  className=' listItem text-muted'>Address</ListGroup.Item>
       <ListGroup.Item  className=' listItem text-muted'>Phone Number</ListGroup.Item>
@@ -34,7 +33,7 @@ function Footer(){
 
     </ListGroup>
             </Col>
-            <Col className="col-2">
+            <Col className="col-2 p-2 footer">
             <ListGroup variant="flush">
       <ListGroup.Item className='listItem text-muted'>Facebook</ListGroup.Item>
       <ListGroup.Item className='listItem text-muted'>Instagram </ListGroup.Item>
@@ -43,7 +42,7 @@ function Footer(){
 
     </ListGroup>
             </Col>
-        </Row>
+        </Container>
     </footer>
     </>)
 }

@@ -7,19 +7,27 @@ import * as React from "react";
 import * as bs from 'bootstrap/dist/css/bootstrap.css';
 
 import Navigation from "./nav";
+import Main from './main';
+import { ScreenSizeProvider } from './providers/screenSize';
+import { Container } from 'react-bootstrap';
 
 function App() {
+
+
+
   return (
-    <>
+    <ScreenSizeProvider>
+      
    <Header></Header>
    <Navigation></Navigation>
-    <main>
-    
-    </main>
+    <Main />
    <Footer>
     </Footer>
-    </>
+
+   </ScreenSizeProvider>
   );
 }
+
+
 
 export default App;
