@@ -5,6 +5,7 @@ import bruchetta from "./icons_assets/bruchetta.svg"
 import lemonD from "./icons_assets/lemon dessert.jpg"
 import { useScreen } from "./providers/screenSize";
 import Dishes from "./dishes";
+import BookingForm from "./bookingForm";
 
 function Main() {
   const dishesArray=[
@@ -59,6 +60,8 @@ function Main() {
           </Col>
         </div>
        <Dishes dishesArray={dishesArray}/>
+
+      
       </div>
 
     </main>

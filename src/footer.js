@@ -4,7 +4,7 @@ import logo from './icons_assets/Logo .svg'
 function Footer(){
     return(<>
     <footer  className='overflow' >
-        <Container className='d-flex justify-content-center mt-5 'fixed="bottom">
+        <div className='d-flex margins justify-content-between mt-5 'fixed="bottom">
             <Col className="col-4 d-flex  justify-content-start align-items-center ">
               
        
@@ -42,7 +42,7 @@ function Footer(){
 
     </ListGroup>
             </Col>
-        </Container>
+        </div>
     </footer>
     </>)
 }

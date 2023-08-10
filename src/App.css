@@ -52,6 +52,10 @@
   cursor: pointer;
   text-align: center;
 }
+.footerIMG{
+  width: 60%;
+}
+
 
 /* main */
 .mainContainer{
@@ -173,6 +177,7 @@
   display: flex;
   flex-direction: row;
   padding: 1%;
+  
 }
 .lemonLogo{
   align-content: start;
@@ -187,6 +192,7 @@
 text-decoration: none;
 cursor: pointer;
 vertical-align: middle;
+
 
 }
 
@@ -244,12 +250,12 @@ vertical-align: middle;
 .imageContainer{
   background-image: url("./icons_assets/restauranfood.jpg") ;
   background-size:100% 100%;
-  width: 28%;
+  width: 24%;
   min-height:105%;
   max-height:110%;
    position: absolute; 
   top: 3vw; 
-  left: 62%;
+  left: 66%;
   border-radius: 18px;
 
 

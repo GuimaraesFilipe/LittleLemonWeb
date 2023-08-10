@@ -9,7 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import * as Icon from 'react-bootstrap-icons';
-function Navigation(){
+function Navigation(props){
     const { isSmallScreen} = useScreen();
     const [dropdown, setdropdow]=useState(false)
     const [isnavVisible, setIsNavVisible] = useState(false);
@@ -34,8 +34,8 @@ function Navigation(){
             <Nav.Link   href="#home" className='navLink'  >Home</Nav.Link>
             <Nav.Link className='navLink'href="#about">About</Nav.Link>
             <Nav.Link className='navLink' href="#menu" >Menu</Nav.Link>
-            <Nav.Link className='navLink' href="#reservations" >Reservations</Nav.Link>
-            <Nav.Link className='navLink' href="#order" >Order</Nav.Link>
+            <Nav.Link className='navLink'  onClick={()=>props.setShowModel()} >Reservations</Nav.Link>
+            <Nav.Link className='navLink' href="/" >Order</Nav.Link>
             <Nav.Link className='navLink' href="#login" >Login</Nav.Link>
         </Nav>
       
