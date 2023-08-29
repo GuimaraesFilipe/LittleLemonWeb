@@ -7,7 +7,7 @@ import { useScreen } from "./providers/screenSize";
 import Dishes from "./dishes";
 import BookingForm from "./bookingForm";
 
-function Main() {
+function Main(props) {
   const dishesArray=[
     {
       image:greek,
@@ -38,7 +38,7 @@ function Main() {
             <h1  className="title mt-4 ">Little Lemon</h1>
             <h2  className="subtitle">Chicago</h2>
             <p className="subText " >We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist</p>
-            <button className="mb-3 primary rounded button">Reserve a table</button>
+            <button className="mb-3 primary rounded button"  onClick={()=>props.setShowModel()} >Reserve a table</button>
           </Col>
 
           </div>

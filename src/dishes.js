@@ -7,10 +7,10 @@ function Dishes(props){
 
 
 return(
-    <div className='cards'  >
+    <div className='cards'key='cards' >
     {dishesArray.map((src,index)=>{
       return (
-        <Card className=' card m-2 '>
+        <Card className=' card m-2 ' key={index}>
         <Card.Img variant="top" className="cardImg" src={src.image} />
         <Card.Body  style={{backgroundColor:"#EDEFEE"}} >
           <Card.Title  > 

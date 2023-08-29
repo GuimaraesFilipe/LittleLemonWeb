@@ -24,9 +24,9 @@ function App() {
    <Navigation setShowModel={()=>setShowModel(true)}></Navigation>
 
    <BookingPage showModel={showModel} setShowModel={(e)=>setShowModel(e)}/>
-    <Main />
-   <Footer>
-    </Footer>
+    <Main setShowModel={()=>setShowModel(true)} />
+   <Footer setShowModel={()=>setShowModel(true)}>
+    </Footer  >
     </BrowserRouter>
    </ScreenSizeProvider>
   );

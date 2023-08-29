@@ -5,7 +5,19 @@
   overflow-x:hidden
 
 }
-
+.toast-overlay {
+  position: fixed; /* Sit on top of the page content */
+  display:show; /* Hidden by default */
+  width: 12%; /* Full width (cover the whole page) */
+  height: 12%; /* Full height (cover the whole page) */
+  top: 1;
+  left: 1;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -146,7 +158,9 @@
 .cardText{
  color: black;width: 100%;
   font-Size: 16pt ;padding: 5%;
+  min-height: 50%;
 }
+
 
 .onlineButton{
   font-size: 1.4vw;
@@ -335,6 +349,24 @@ margin-bottom: 3%;}
 }
 
 @media (max-width: 1200px) {
+  
+  .cardTitle{
+  
+      font-Size:16pt;
+ 
+   }
+   
+   .cardPrice{
+    
+     font-Size:16pt;
+    
+   }
+   
+   .cardText{
+    
+     font-Size: 14pt;
+     min-height: 60%;
+   }
   .lemonLogo{
     align-content: start;
     text-align: left;
@@ -376,6 +408,7 @@ margin-bottom: 3%;}
   
   
   }
+ 
 }
 
 @media (max-width: 1000px) {
@@ -1006,3 +1039,18 @@ margin-bottom: 3%;}
   }
  
 }
+
+/* Form */
+
+#formTitle{
+  color:black;
+   width:100%;
+    font-Size:23pt;
+    font-Weight:bold;
+     
+ }
+
+ .borderNone{
+  border: 0;
+  box-shadow: none; 
+ }
