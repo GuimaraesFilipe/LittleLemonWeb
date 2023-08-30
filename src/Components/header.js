@@ -1,4 +1,4 @@
-import logo from './icons_assets/Logo .svg'
+import logo from '../icons_assets/Logo .svg'
 function Header(){
     return(
         <header className='overflow'>

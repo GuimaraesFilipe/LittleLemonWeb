@@ -240,6 +240,97 @@ vertical-align: middle;
   margin-right: 10%;
 }
 
+/* testimonials */
+
+#testimonials {
+  padding: 1vh 0;
+  background-color: #FBFBFB;
+  font-family: 'Karla', sans-serif;
+}
+
+#testimonials h2 {
+  font-size: 35pt;
+  text-align: center;
+  font-weight: bolder;
+
+ 
+}
+
+#testimonials > div > div {
+  padding: 8vh 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4vw;
+}
+
+.testimonial {
+  padding: 1vw;
+  text-align: center;
+  position: relative;
+  -webkit-box-shadow: -1px 9px 13px 3px rgba(212, 212, 212, 1);
+  -moz-box-shadow: -1px 9px 13px 3px rgba(212, 212, 212, 1);
+  box-shadow: -1px 9px 13px 3px rgba(212, 212, 212, 1);
+}
+
+.testimonial > div> img {
+  top: -6vh;
+  position: absolute;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 100%;
+}
+
+.testimonial .content {
+  padding-top: 3vh;
+}
+
+.testimonial h4 {
+  margin: 0;
+  font-Size:18pt;
+  font-Weight:bold;
+}
+
+.testimonial .content > p {
+  font-style: italic;
+  font-Size: 16pt 
+}
+
+/* About */
+
+#about .image-container > img {
+  width: 16vw;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+#about .image-container {
+  position: relative;
+}
+
+#about .image-container > img:first-child {
+  position: relative;
+  top: 0;
+  left: -12vw;
+  z-index: 1;
+}
+
+#about .image-container > img:last-child {
+  position: absolute;
+  top: 14vh;
+  left: 0;
+}
+#about .title{
+  
+   font-size: 66pt;
+}
+#about .subText{
+  color: white;
+   text-align: left;
+   width: 40%;
+   font-size: 20pt;
+}
+
 @media (max-width: 2000px) {
 
   .title{
@@ -259,7 +350,6 @@ vertical-align: middle;
    font-size: 24pt;
   }
 
-  
   
 .imageContainer{
   background-image: url("./icons_assets/restauranfood.jpg") ;
@@ -346,10 +436,20 @@ margin-bottom: 3%;}
 
 
 }
+
+#about .subText{
+  color: white;
+   text-align: left;
+   width: 60%;
+   font-size: 20pt;
+}
+
+
 }
 
 @media (max-width: 1200px) {
   
+
   .cardTitle{
   
       font-Size:16pt;
@@ -408,11 +508,26 @@ margin-bottom: 3%;}
   
   
   }
+
+
+
  
 }
 
 @media (max-width: 1000px) {
- 
+  #about .image-container {
+    display:none
+  }
+  #about .title{
+    font-size: 45pt;
+    text-align: center;
+ }
+ #about .subText{
+   color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 18pt;
+ }
   .margin{
     margin-left: 10%;
     margin-right: 10%;
@@ -572,7 +687,7 @@ margin-bottom: 3%;}
 
   .cardTitle{
 
-      font-Size:12pt;
+      font-Size:14pt;
       
    }
 
@@ -655,8 +770,45 @@ margin-bottom: 3%;}
     width: 80%;
   }
 
-  
+  #testimonials h2 {
+    margin: 0;
+    font-size: 30pt;
+    
+}
 
+#testimonials > div > div {
+    display: block;
+    padding: 5vh 0;
+}
+
+.testimonial {
+    position: static;
+    margin-bottom: 4vh;
+    padding: 2vh 8vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    border-radius: 8px;
+}
+
+.testimonial .content {
+    padding-left: 3vw;
+}
+
+.testimonial > div> img {
+    position: static;
+}
+.testimonial h4 {
+  margin: 0;
+  font-Size:14pt;
+  font-Weight:bold;
+}
+
+.testimonial .content > p {
+  font-style: italic;
+  font-Size: 12pt 
+}
 }
 
 
@@ -744,7 +896,14 @@ margin-bottom: 3%;}
    text-align: center;
    
   }
-  
+  #about .title{
+    font-size: 30pt;
+    
+ }
+ #about .subText{
+
+    font-size: 16pt;
+ }
 
   .button{
     
@@ -780,6 +939,7 @@ margin-bottom: 3%;}
     width: 90%;
   }
 
+  
 }
 
 @media (max-width: 600px) {
@@ -854,7 +1014,14 @@ margin-bottom: 3%;}
    text-align: center;
    
   }
-  
+  #about .title{
+    font-size: 28pt;
+    
+ }
+ #about .subText{
+
+    font-size: 14pt;
+ }
 
   .button{
     
@@ -936,6 +1103,15 @@ margin-bottom: 3%;}
    text-align: center;
    
   }
+
+  #about .title{
+    font-size: 26pt;
+    
+ }
+ #about .subText{
+
+    font-size: 12pt;
+ }
   
 
   .button{

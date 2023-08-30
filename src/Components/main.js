@@ -1,9 +1,9 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
-import mainImage from "./icons_assets/restauranfood.jpg"
-import greek from "./icons_assets/greek salad.jpg"
-import bruchetta from "./icons_assets/bruchetta.svg"
-import lemonD from "./icons_assets/lemon dessert.jpg"
-import { useScreen } from "./providers/screenSize";
+import mainImage from "../icons_assets/restauranfood.jpg"
+import greek from "../icons_assets/greek salad.jpg"
+import bruchetta from "../icons_assets/bruchetta.svg"
+import lemonD from "../icons_assets/lemon dessert.jpg"
+import { useScreen } from "../providers/screenSize";
 import Dishes from "./dishes";
 import BookingForm from "./bookingForm";
 
@@ -31,7 +31,8 @@ function Main(props) {
   const { isSmallScreen} = useScreen();
 
   return (
-    <main className='overflow '>
+    <main className=' '>
+          <section id="home">
       <div className=" mainContainer ">
         <div className=" d-flex justify-content-center overflow-visible margin ">
           <Col className={  isSmallScreen? "col-12 center ":'col-12  '}>
@@ -48,6 +49,8 @@ function Main(props) {
           ></div>
         
       </div>
+      </section>
+      <section id="menu">
       <div className="margin">
         <div className='weeks  ' >
           <Col className='col-8'>
@@ -63,7 +66,7 @@ function Main(props) {
 
       
       </div>
-
+      </section>
     </main>
   )
 

@@ -68,7 +68,8 @@ const curTime=new Date()
   const closeModal = () => {
     props.setShowModel(false)
   }
-  return (<>
+  return (    <section id="booking">
+
   <Modal
     size="xl"
     aria-labelledby="contained-modal-title-vcenter"
@@ -98,7 +99,7 @@ const curTime=new Date()
  
     
 
-  </>)
+  </section>)
 
 
 }

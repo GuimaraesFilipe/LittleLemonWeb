@@ -1,4 +1,4 @@
-import deliveryIcon from './icons_assets/basket .svg'
+import deliveryIcon from '../icons_assets/basket .svg'
 import Card from 'react-bootstrap/Card';
 
 function Dishes(props){

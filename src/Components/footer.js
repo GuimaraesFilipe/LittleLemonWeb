@@ -1,5 +1,5 @@
 import { Col, Row,Container,ListGroup,ListGroupItem } from "react-bootstrap";
-import logo from './icons_assets/Logo .svg'
+import logo from '../icons_assets/Logo .svg'
 
 function Footer(props){
     return(<>
@@ -14,11 +14,11 @@ function Footer(props){
             </Col>
             <Col className="col-3 p-2 footer">
             <ListGroup variant="flush">
-      <ListGroup.Item   className=' listItem text-muted'>Home</ListGroup.Item>
-      <ListGroup.Item className=' listItem  text-muted'>About</ListGroup.Item>
-      <ListGroup.Item  className=' listItem  text-muted'>Menu</ListGroup.Item>
+      <ListGroup.Item   className=' listItem text-muted' href='#home'>Home</ListGroup.Item>
+      <ListGroup.Item  className=' listItem text-muted' href='#testimonials' ></ListGroup.Item>
+      <ListGroup.Item  className=' listItem  text-muted'href='#menu'>Menu</ListGroup.Item>
+      <ListGroup.Item className=' listItem  text-muted' href='#about'>About</ListGroup.Item>
       <ListGroup.Item  onClick={()=>props.setShowModel()}   className=' listItem text-muted'> Reservations</ListGroup.Item>
-      <ListGroup.Item  className=' listItem text-muted'>Order Online</ListGroup.Item>
       <ListGroup.Item  className=' listItem text-muted'>Login</ListGroup.Item>
 
     </ListGroup>

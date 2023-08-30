@@ -138,7 +138,7 @@ function BookingForm(props) {
 
 
 
-console.log('date is',date,' and mindate is ', new Date(minDate))
+// console.log('date is',date,' and mindate is ', new Date(minDate))
 
 
 
