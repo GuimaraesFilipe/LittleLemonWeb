@@ -12,11 +12,13 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import * as formik from 'formik';
 import * as yup from 'yup';
-
+import mainImage from "../icons_assets/restauranfood.jpg"
+import RestaurantImage from '../icons_assets/restaurant.jpg'
+import ChefsImage from '../icons_assets/chefs.jpg'
 
 function BookingForm(props) {
 
-
+  const images=[mainImage,RestaurantImage,ChefsImage]
 
   let bookedDate = props.bookings;
   const defaultTime = props.defaultTimeSlots;
@@ -184,7 +186,7 @@ function BookingForm(props) {
       }}
     >
       {({ handleSubmit, handleChange, values, touched, errors, isValidating }) => (
-        <Form onSubmit={handleSubmit} class='form'>
+        <Form onSubmit={handleSubmit} class='   '>
           <div className="d-flex">
             <Form.Group
               as={Col}
@@ -245,7 +247,7 @@ function BookingForm(props) {
 
           <div className='d-flex '>
             <Form.Group className="col mb-3 px-2" controlId="validationCustom00">
-              <Form.Label   >Pick a Date</Form.Label>
+              <Form.Label   >Date</Form.Label>
               <Form.Control data-testid='date' required type="date" name='date' value={values.date} onChange={e => { checkSetDate(e.target.value); handleChange(e); }} isValid={touched.date && !errors.date}
                 isInvalid={!!errors.date} />
               <Form.Control.Feedback type="invalid"  >
@@ -301,8 +303,16 @@ function BookingForm(props) {
             </Form.Control.Feedback>
           </Form.Group> : <></>}
 
+                
+          <div className="d-flex justify-content-center formImages" >
+      {images.map(img=>{
+        return(
+        <img src={img} ></img>)
+      })}
+      </div>
+
           <div className="text-center" >
-            <button data-testid='submit' id='submit' type="submit" class="rounded button">Submit</button>
+            <button data-testid='submit' id='submit' type="submit" class="rounded button">Reserva a table </button>
           </div>
         </Form>
       )}

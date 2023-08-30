@@ -1,11 +1,16 @@
 import BookingForm from "./bookingForm";
-import { Modal, ModalBody, ModalFooter, ModalHeader } from "react-bootstrap";
+import { CloseButton, Modal, ModalBody, ModalFooter, ModalHeader } from "react-bootstrap";
 import { useReducer } from "react";
 import Toast from 'react-bootstrap/Toast';
 import { date } from "yup";
 import { useTimer } from 'react-timer-hook';
 
+
+
+
 function BookingPage(props) {
+
+  
 let expiryTimestamp = new Date();
   const {
     totalSeconds,
@@ -74,16 +79,26 @@ const curTime=new Date()
     size="xl"
     aria-labelledby="contained-modal-title-vcenter"
     centered
-    scrollable={true}
+    scrollable={false}
     show={props.showModel}
+    
     onHide={() => closeModal()}
-    className="modal-overlay"
+    className="modal-overlay modalBorder"
+    closeVariant={'white'}
+   
+    
   >
-    <ModalHeader closeButton>
-      <h2 data-testid='book' id='formTitle'>Book your table</h2>
+     <div className="modalColor px-2">
+    <ModalHeader   >
+     
+      <h2 data-testid='book' id='formTitle'>Reservations</h2>
+    
+      <button type="button" class="btn-close"    onClick={() => closeModal()}></button>
     </ModalHeader>
-    <ModalBody>
+    </div>
+    <ModalBody className="modalColor ">
       <BookingForm closeModal={() => closeModal()} defaultTimeSlots={defaultTimeSlots} bookings={bookings} onBookingSet={(bookings) => booked(bookings)} ></BookingForm>
+     
     </ModalBody>
 
   </Modal>
