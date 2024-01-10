@@ -31,13 +31,12 @@ function Navigation(props){
 
       <Nav className="smallNav">
       
-            <Nav.Link   className='navLink'  href='#home'>Home</Nav.Link>
-            <Nav.Link className='navLink' href='#menu' >Menu</Nav.Link>
-            <Nav.Link className='navLink' href='#about' >About</Nav.Link>
-            <Nav.Link className='navLink' href='#testimonials' >Testimonials</Nav.Link>
+            <Nav.Link   className='navLink'  href='/#home'>Home</Nav.Link>
+            <Nav.Link className='navLink' href='/Menu' >Menu</Nav.Link>
+            <Nav.Link className='navLink' href='/#about' >About</Nav.Link>
+            <Nav.Link className='navLink' href='/#testimonials' >Testimonials</Nav.Link>
             <Nav.Link className='navLink' data-testid='reservationNav' onClick={()=>props.setShowModel()} >Reservations</Nav.Link>
           
-            <Nav.Link className='navLink' >Login</Nav.Link>
         </Nav>
       
 
@@ -46,14 +45,14 @@ function Navigation(props){
         <DropdownButton  onToggle={toggleNav} className={  isSmallScreen? "  sideMenu dropdown-menu-right ":"d-none"} 
         title={<Icon.List ></Icon.List>} variant='Secondary'   size="lg">
         
-        <Dropdown.Item  href='#home' >Home</Dropdown.Item>
-        <Dropdown.Item href='#menu' >Menu</Dropdown.Item>
-        <Dropdown.Item  href='#testimonials' >Testimonials</Dropdown.Item>
-        <Dropdown.Item href='#about' >About</Dropdown.Item>
+        <Dropdown.Item  href='/#hom' >Home</Dropdown.Item>
+        <Dropdown.Item href='/Menu' >Menu</Dropdown.Item>
+        <Dropdown.Item href='/#about' >About</Dropdown.Item>
+        <Dropdown.Item  href='/#testimonials' >Testimonials</Dropdown.Item>
+    
         
         <Dropdown.Item   onClick={()=>props.setShowModel()}  >Reservations</Dropdown.Item>
 
-        <Dropdown.Item  >Login</Dropdown.Item>
 
     </DropdownButton>
         {/* <button onClick={toggleNav} >

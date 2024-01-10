@@ -18,7 +18,7 @@ import ChefsImage from '../icons_assets/chefs.jpg'
 
 function BookingForm(props) {
 
-  const images=[mainImage,RestaurantImage,ChefsImage]
+  const images = [mainImage, RestaurantImage, ChefsImage]
 
   let bookedDate = props.bookings;
   const defaultTime = props.defaultTimeSlots;
@@ -94,10 +94,11 @@ function BookingForm(props) {
     return (
       <PhoneInput
         country="AUS"
-        placeholder="Enter phone number"
+        id="phoneInput"
         value=""
         required
         data-testid='phone'
+       
         onChange={value => {
           if (!form.touched[field.name]) form.setFieldTouched(field.name);
           form.setFieldValue(field.name, value);
@@ -125,8 +126,8 @@ function BookingForm(props) {
     firstName: yup.string().required('First name is required'),
     lastName: yup.string().required('Last name is required'),
     // phone:yup.string().required().matches(phoneRegExp, 'Phone number is not valid'),
-    date: yup.date().required().min(minDate, 'The date cannot be in the past'),
-    time: yup.string().required().notOneOf(['', 'Please select a time', 'There are no times available for this date'], 'Please select a valid time'),
+    date: yup.date().required().min(minDate, 'The date is in the past'),
+    time: yup.string().required('Time is required').notOneOf(['', 'Please select a time', 'There are no times available for this date'], 'Please select a valid time'),
     guestNo: yup.number().required().moreThan(0, 'Number of guests needs to be more than 0'),
     ocassion: yup.string().required(),
     otherOption: yup.string().when('ocassion', (ocassion) => {
@@ -140,14 +141,14 @@ function BookingForm(props) {
 
 
 
-// console.log('date is',date,' and mindate is ', new Date(minDate))
+  // console.log('date is',date,' and mindate is ', new Date(minDate))
 
 
 
   const handleSubmit = (event) => {
 
     // console.log(event)
-   
+
     if (event.date && event.time && event.guestNo != 0 && event.ocassion && event.firstName && event.lastName && event.phone) {
 
       // bookedDate = [...bookedDate, event]
@@ -186,14 +187,14 @@ function BookingForm(props) {
       }}
     >
       {({ handleSubmit, handleChange, values, touched, errors, isValidating }) => (
-        <Form onSubmit={handleSubmit} class='   '>
-          <div className="d-flex">
+        <Form onSubmit={handleSubmit} >
+          <div className="modalForm">
             <Form.Group
               as={Col}
-              controlId="validationFormik101"
+              // controlId="validationFormik101"
               className="position-relative px-2"
             >
-              <Form.Label>First name</Form.Label>
+              <Form.Label style={{color:'black'}}>First name:</Form.Label>
               <Form.Control
                 type="text"
                 name="firstName"
@@ -203,16 +204,18 @@ function BookingForm(props) {
                 isInvalid={!!errors.firstName}
                 data-testid='name'
               />
-              <Form.Control.Feedback type="invalid" tooltip>
-                {errors.firstName}
+              <Form.Control.Feedback type="invalid" >
+              <div className='errorMessage'>
+               <p>{errors.firstName}</p> 
+               </div>
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group
               as={Col}
-              controlId="validationFormik102"
+              // controlId="validationFormik102"
               className="position-relative px-2"
             >
-              <Form.Label>Last name</Form.Label>
+              <Form.Label style={{color:'black'}}>Last name:</Form.Label>
               <Form.Control
                 type="text"
                 name="lastName"
@@ -223,16 +226,25 @@ function BookingForm(props) {
                 data-testid='lastname'
               />
 
-              <Form.Control.Feedback type="invalid" tooltip>
-                {errors.lastName}
+              <Form.Control.Feedback type="invalid" >
+                <div className='errorMessage'>
+               <p>{errors.lastName}</p> 
+               </div>
               </Form.Control.Feedback>
             </Form.Group>
 
 
 
           </div>
-          <Form.Group controlId="aus_phone" className="mb-3 px-2">
-            <Form.Label>Phone number</Form.Label>
+        
+
+
+
+          <div className='modalForm '>
+          <Form.Group  as={Col}
+          //  controlId="aus_phone" 
+           className="position-relative px-2 mt-2">
+            <Form.Label style={{color:'black'}}>Phone number:</Form.Label>
             <Field component={Phone}
               name='phone'
 
@@ -242,20 +254,43 @@ function BookingForm(props) {
                    <div className="error">{errors.phone}</div>
                  )} */}
           </Form.Group>
-
-
-
-          <div className='d-flex '>
-            <Form.Group className="col mb-3 px-2" controlId="validationCustom00">
-              <Form.Label   >Date</Form.Label>
-              <Form.Control data-testid='date' required type="date" name='date' value={values.date} onChange={e => { checkSetDate(e.target.value); handleChange(e); }} isValid={touched.date && !errors.date}
+            <Form.Group  as={Col} className="position-relative px-2 mt-2"
+            // controlId="validationCustom00"
+            >
+              <Form.Label style={{color:'black'}}  >Date:</Form.Label>
+              <Form.Control data-testid='date' required type="date" name='date' value={values.date} onChange={e => { setdate(e.target.value); handleChange(e); }} isValid={touched.date && !errors.date}
                 isInvalid={!!errors.date} />
               <Form.Control.Feedback type="invalid"  >
-                {errors.date}
+              <div className='errorMessage'>
+               <p>{errors.date}</p> 
+               </div>
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group className="col mb-3 px-2" controlId="validationCustom01">
-              <Form.Label >Select a time</Form.Label>
+           
+          </div>
+          <div className="modalForm">
+          <Form.Group  as={Col} className="mb-3 px-2 borderNone mt-2" 
+          // controlId="validationCustom02"
+          >
+            <Form.Label style={{color:'black'}}>No. of Guests:</Form.Label>
+            <div className='d-flex'>
+              <Form.Control id='guestNo' type="range" placeholder='No' name='guestNo' value={values.guestNo} onChange={handleChange} min={1} max={10}
+                isValid={touched.guestNo && !errors.guestNo}
+                isInvalid={!!errors.guestNo} />
+
+              <h4 className=" px-2">{values.guestNo}</h4>
+
+            </div>
+            <Form.Control.Feedback type="invalid" >
+            <div className='errorMessage'>
+               <p> {errors.guestNo}</p>
+               </div>
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group className="col mb-3 px-2 mt-2"
+          //  controlId="validationCustom01"
+           >
+              <Form.Label style={{color:'black'}}>Time:</Form.Label>
               <Form.Select data-testid='time' required name='time' value={values.time} onChange={handleChange} isValid={touched.time && !errors.time}
                 isInvalid={!!errors.time} >
                 {displayTime.length > 0 ? <option >Please select a time</option> : <option >There are no times available for this date</option>}
@@ -266,53 +301,44 @@ function BookingForm(props) {
 
                 })}
               </Form.Select>
-              <Form.Control.Feedback type="invalid"  >
-                {errors.time}
+              <Form.Control.Feedback type="invalid" >
+               <div className='errorMessage'>
+               <p>{errors.time}</p> 
+               </div>
+               
               </Form.Control.Feedback>
             </Form.Group>
+          
           </div>
-          <Form.Group className="mb-3 px-2 borderNone" controlId="validationCustom02">
-            <Form.Label>Number of Guests</Form.Label>
-            <div className='d-flex'>
-              <Form.Control  data-testid='guestNo' type="range" placeholder='No' name='guestNo' value={values.guestNo} onChange={handleChange} min={1} max={10}
-                isValid={touched.guestNo && !errors.guestNo}
-                isInvalid={!!errors.guestNo} />
-
-              <h4  className=" px-2">{values.guestNo}</h4>
-
-            </div>
-            <Form.Control.Feedback type="invalid" >
-              {errors.guestNo}
-            </Form.Control.Feedback>
-          </Form.Group>
-
-          <Form.Group className="mb-3 px-2">
-            <Form.Label >Ocassion</Form.Label>
+        
+          <div className="modalForm">
+          <Form.Group  as={Col} className="mb-3 px-2 mt-2">
+            <Form.Label style={{color:'black'}} >Ocassion:</Form.Label>
             <Form.Select name='ocassion' value={values.ocassion} onChange={handleChange} aria-label="Default select example">
               <option value="Lunch">Lunch/Dinner</option>
               <option value="BirthDay">Birthday</option>
               <option value="Other">Other</option>
             </Form.Select>
           </Form.Group>
-          {values.ocassion === 'Other' ? <Form.Group className="mb-3">
-            <Form.Label htmlFor="otherOption">Other Option</Form.Label>
-            <Form.Control required name="otherOption" value={values.otherOption} type='text' onChange={handleChange} isValid={touched.otherOption && !errors.otherOption}
+          <Form.Group as={Col} className="mb-3 px-2">
+            <Form.Label htmlFor="otherOption" style={{color:'black'}}>Comments:</Form.Label>
+            <Form.Control as="textarea" required name="otherOption" value={values.otherOption} type='text' onChange={handleChange} isValid={touched.otherOption && !errors.otherOption}
               isInvalid={!!errors.otherOption} />
             <Form.Control.Feedback type="invalid">
-              {errors.otherOption}
+            <div className='errorMessage'>
+               <p>{errors.otherOption}</p>
+               </div>
             </Form.Control.Feedback>
-          </Form.Group> : <></>}
-
-                
-          <div className="d-flex justify-content-center formImages" >
-      {images.map(img=>{
-        return(
-        <img src={img} ></img>)
-      })}
-      </div>
-
+          </Form.Group> 
+          {/* <div as={Col} className="d-flex justify-content-center formImages" >
+            {images.map(img => {
+              return (
+                <img src={img} ></img>)
+            })}
+          </div> */}
+          </div>
           <div className="text-center" >
-            <button data-testid='submit' id='submit' type="submit" class="rounded button">Reserva a table </button>
+          <a  href='/Menu'>  <button data-testid='submit' id='submit' type="submit" className="rounded button">Reserva a table </button></a>
           </div>
         </Form>
       )}

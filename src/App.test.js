@@ -67,12 +67,12 @@ test('Update available time ', async() => {
     fireEvent.change(pickDate, { target: { value: testingDate } });});
     expect(pickDate).toBeInTheDocument()
    
-console.log('window',window.bookedDate)
+// console.log('window',window.bookedDate)
 
 
     await act( async () => {
       fireEvent.mouseDown(picktime);
-      console.log('options',pickOptions)
+      // console.log('options',pickOptions)
       expect(pickOptions[6].value).toBe('19:00');
       expect(pickOptions[0].value).toBe('14:00');
       

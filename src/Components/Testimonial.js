@@ -9,8 +9,11 @@ const Testimonial = (props) => {
         <div className="content">
           <h4>{props.name}</h4>
           <h4>{props.rating}</h4>
+          <div className='testimonialText'>
           <p>"{props.testimonial}"</p>
+          </div>
         </div>
+       
     </div>
   )
 }

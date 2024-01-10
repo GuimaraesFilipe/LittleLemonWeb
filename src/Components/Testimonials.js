@@ -28,12 +28,12 @@ const Testimonials = () => {
   ]
   return (
     <section id="testimonials">
-      <div className="container mt-5">
-        <h2>Testimonials</h2>
+      <div className="container mt-4 ">
+        <h2  >Testimonials</h2>
         <div>
-        {testimonials.map(testimonial =>{
+        {testimonials.map((testimonial,index) =>{
           return(
-            <Testimonial image={testimonial.image} name={testimonial.name} rating={testimonial.rating} testimonial={testimonial.testimonial}></Testimonial>
+            <Testimonial image={testimonial.image} name={testimonial.name} rating={testimonial.rating} testimonial={testimonial.testimonial} key={index}></Testimonial>
           )
         })}
         

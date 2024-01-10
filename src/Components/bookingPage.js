@@ -23,7 +23,7 @@ let expiryTimestamp = new Date();
     pause,
     resume,
     restart,
-  } = useTimer({expiryTimestamp, onExpire: () => { dispatchToast({type:"CLOSETOAST"}); console.log('timer expired') } });
+  } = useTimer({expiryTimestamp, onExpire: () => { dispatchToast({type:"CLOSETOAST"}); } });
 
 
 
@@ -84,16 +84,16 @@ const curTime=new Date()
     
     onHide={() => closeModal()}
     className="modal-overlay modalBorder"
-    closeVariant={'white'}
+    
    
     
   >
      <div className="modalColor px-2">
     <ModalHeader   >
      
-      <h2 data-testid='book' id='formTitle'>Reservations</h2>
+      <h2 data-testid='book' id='formTitle'>Make a reservation</h2>
     
-      <button type="button" class="btn-close"    onClick={() => closeModal()}></button>
+      <a  href='/'>   <button type="button" className="btn-close"    onClick={() => closeModal()}></button></a>
     </ModalHeader>
     </div>
     <ModalBody className="modalColor ">
@@ -103,7 +103,7 @@ const curTime=new Date()
 
   </Modal>
 
-        <Toast show={toast.show} bg='success' delay={1000} autohide position="bottom-end"  className="toast-overlay">
+        <Toast show={toast.show} bg='success' delay={100000} autohide position="bottom-end"  className="toast-overlay">
           <Toast.Header>
             <strong className="me-auto">Reservation booked</strong>
            

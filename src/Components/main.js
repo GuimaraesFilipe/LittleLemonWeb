@@ -6,31 +6,18 @@ import lemonD from "../icons_assets/lemon dessert.jpg"
 import { useScreen } from "../providers/screenSize";
 import Dishes from "./dishes";
 import BookingForm from "./bookingForm";
-
+import Testimonials from "./Testimonials";
+import About from './About';
+import { useMenu } from "../providers/menuProvider";
+import { Link } from "react-router-dom";
 function Main(props) {
-  const dishesArray=[
-    {
-      image:greek,
-      title:"Greek Salad",
-      price:"$12.99",
-      txt:"The famous greek salad of crispy lettuce, peppers, olivies and ourChicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
-    },
-    {
-      image:bruchetta,
-      title:"Bruchetta",
-      price:"$5.99",
-      txt:"Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil"
-    },
-    {
-      image:lemonD,
-      title:"Lemon Dessert",
-      price:"$5.00",
-      txt:"This comes straight from grandma's recipe book, every last ingridient has been sourced and is as authentic as can be imagined."
-    }
-  ]
+  const menuData = useMenu().setPopular()
+  const dishesArray=menuData[0].data
   const { isSmallScreen} = useScreen();
 
-  return (
+
+  return (<>
+ 
     <main className=' '>
           <section id="home">
       <div className=" mainContainer ">
@@ -39,7 +26,7 @@ function Main(props) {
             <h1  className="title mt-4 ">Little Lemon</h1>
             <h2  className="subtitle">Chicago</h2>
             <p className="subText " >We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist</p>
-            <button className="mb-3 primary rounded button"  onClick={()=>props.setShowModel()} >Reserve a table</button>
+            <button className="mb-5 primary rounded button" onClick={()=>props.setShowModel()} >Reserve a table</button>
           </Col>
 
           </div>
@@ -58,7 +45,7 @@ function Main(props) {
 
           </Col>
           <Col className='col-4  '>
-            <button className="float-end primary rounded button"  >Online Menu</button>{' '}
+          <a  href='/Menu'>      <button className="float-end rounded button" >Online Menu</button>{' '}</a>
 
           </Col>
         </div>
@@ -68,6 +55,9 @@ function Main(props) {
       </div>
       </section>
     </main>
+    <Testimonials></Testimonials>
+    <About/>
+    </>
   )
 
 }
